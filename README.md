@@ -23,8 +23,7 @@ API Key(Developer Key)
 
 1. Get Key from [Google Developers Console](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiCrZi1n87uAhUxy4sBHemrA3gQFjAAegQIARAD&url=https%3A%2F%2Fconsole.developers.google.com%2F%3Fhl%3DJA&usg=AOvVaw08CfEIcxcA-mwp7e2f3XVK)
 2. Rewrite DEVELOPERKEY in .env file
-
-
+3. Change File Name from 'sample.env' to '.env'
 
 
 
