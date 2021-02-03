@@ -90,7 +90,7 @@ func (args SearchArgs) Search_videos(service *youtube.Service) {
 		fmt.Println("\nUpload Time : " + snippet.PublishedAt)
 		fmt.Println("Thumbnail Url : " + snippet.Thumbnails.High.Url)
 		if (args.ChannelName != "" && args.IsLiveNow && v == 0) {
-			os.Exit(1)
+			os.Exit(0)
 		}
 	}
 }
