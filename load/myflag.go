@@ -17,7 +17,7 @@ func Myflag() (string, string, int, string, bool, bool) {
 		archiveFlag = flag.Bool("a", false, "whether to view only live-archive")
 	)
 	flag.Usage = func() {
-		fmt.Println("yt_meta [options...]")
+		fmt.Println("Youtube-metadata [options...]")
 		fmt.Println("-c or -v flag should be set")
 		fmt.Println("Available  Options: ")
 		flag.PrintDefaults()
