@@ -10,6 +10,7 @@ import (
 
 	"Youtube-metadata/check"
 	"Youtube-metadata/time"
+	"Youtube-metadata/preview_save"
 )
 
 type SearchArgs struct {
@@ -67,6 +68,8 @@ func (args SearchArgs) Search_videos(service *youtube.Service) {
 		log.Fatal(err)
 	}
 
+	videoNames := make([]string, args.VideoNum)
+	thumbnailsUrl := make([]string, args,VideoNum)
 	for v := 0; v < args.VideoNum; v++ {
 		subCall := service.Videos.List([]string{"contentDetails,statistics"}).Id(res.Items[v].Id.VideoId)
 		subRes, err := subCall.Do()
@@ -77,6 +80,8 @@ func (args SearchArgs) Search_videos(service *youtube.Service) {
 		statistics := subRes.Items[0].Statistics
 		snippet := res.Items[v].Snippet
 		videoUrl := " ( https://youtu.be/" + res.Items[v].Id.VideoId + " )"
+		videoNames[v] = snippet.Title
+		thumbnailsUrl[v] = snippet.Thumbnails.High.Url
 		fmt.Print("\nTitle : " + snippet.Title + videoUrl)
 		if snippet.LiveBroadcastContent == "live" {
 			fmt.Print(" [\x1b[31mStreaming Now\x1b[0m]")
@@ -93,4 +98,5 @@ func (args SearchArgs) Search_videos(service *youtube.Service) {
 			os.Exit(0)
 		}
 	}
+	preview_save.IsPreview_Save(videoNames, thumbnailsUrl, args.VideoNum
 }
